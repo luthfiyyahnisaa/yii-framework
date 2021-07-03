@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\prodi;
-use app\models\ProdiSearch;
+use app\models\fakultas;
+use app\models\FakultasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProdiController implements the CRUD actions for prodi model.
+ * FakultasController implements the CRUD actions for fakultas model.
  */
-class ProdiController extends Controller
+class FakultasController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class ProdiController extends Controller
     }
 
     /**
-     * Lists all prodi models.
+     * Lists all fakultas models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProdiSearch();
+        $searchModel = new FakultasSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ProdiController extends Controller
     }
 
     /**
-     * Displays a single prodi model.
+     * Displays a single fakultas model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class ProdiController extends Controller
     }
 
     /**
-     * Creates a new prodi model.
+     * Creates a new fakultas model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new prodi();
+        $model = new fakultas();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class ProdiController extends Controller
     }
 
     /**
-     * Updates an existing prodi model.
+     * Updates an existing fakultas model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class ProdiController extends Controller
     }
 
     /**
-     * Deletes an existing prodi model.
+     * Deletes an existing fakultas model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class ProdiController extends Controller
     }
 
     /**
-     * Finds the prodi model based on its primary key value.
+     * Finds the fakultas model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return prodi the loaded model
+     * @return fakultas the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = prodi::findOne($id)) !== null) {
+        if (($model = fakultas::findOne($id)) !== null) {
             return $model;
         }
 
